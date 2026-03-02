@@ -27,3 +27,5 @@ Hierna commit je met een message dat verteld wat je hebt veranderd (file aangepa
 git commit -m "<message>"
 ```
 
+
+
