@@ -4,33 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Urban Insights - Onepager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              ui: {
-                bg: "#f3f7f4",
-                surface: "#ffffff",
-                soft: "#f8fbf8",
-                text: "#1f2924",
-                muted: "#5f6f67",
-                line: "#dbe6df",
-                primary: "#1f7a4d",
-                "primary-soft": "#e1f1e8",
-                accent: "#f2a93b",
-                "accent-soft": "#fff3df"
-              }
-            },
-            boxShadow: {
-              panel: "0 14px 35px rgba(20, 38, 28, 0.08)"
-            }
-          }
-        }
-      };
-    </script>
+    <script src="https://unpkg.com/feather-icons"></script>
     <style>
+      :root {
+        --green-dark: #0f5c45;
+        --green: #88d498;
+        --green-soft: #c3e0b9;
+        --charcoal: #262626;
+        --white: #ffffff;
+        --muted: #d4d4d4;
+      }
+
+      body {
+        font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
       .flip-card {
         perspective: 1400px;
       }
@@ -56,127 +48,277 @@
       .flip-card-back {
         transform: rotateY(180deg);
       }
+
+      .section-dark {
+        background: var(--charcoal);
+        color: var(--white);
+      }
+
+      .section-dark .muted {
+        color: var(--muted);
+      }
+
+      .card-outline {
+        border: 1px solid rgba(212, 212, 212, 0.4);
+        background: #ffffff;
+      }
+
+      .dark-panel {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .pill {
+        background: rgba(195, 224, 185, 0.5);
+        border: 1px solid rgba(15, 92, 69, 0.18);
+      }
+
+      .soft-panel {
+        background: rgba(195, 224, 185, 0.4);
+        border: 1px solid rgba(15, 92, 69, 0.15);
+      }
+
+      .title-with-icon {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .title-with-icon svg {
+        width: 1.1rem;
+        height: 1.1rem;
+        stroke-width: 2.2;
+      }
     </style>
   </head>
-  <body class="bg-slate-50 text-slate-900 antialiased">
-    <header class="absolute inset-x-0 top-0 z-50">
-      <div class="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-4 px-6 py-6">
-        <div class="rounded-full border border-emerald-200/70 bg-emerald-50/90 px-4 py-1.5 text-base font-semibold tracking-wide text-slate-900 shadow-sm backdrop-blur md:text-lg">
-          Urban <span class="text-ui-primary">Insights</span>
-        </div>
-        <nav class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-black/90">
-          <a class="transition-colors" href="#visie">Visie</a>
-          <a class="transition-colors" href="#situatie">Situatie</a>
-          <a class="transition-colors" href="#doelgroep">Doelgroep</a>
-          <a class="transition-colors" href="#scope">Scope</a>
-          <a class="transition-colors" href="#sprint">Sprint 1</a>
-          <a class="transition-colors" href="#fotos">Foto's</a>
+  <body class="bg-white text-[#262626] antialiased">
+    <header class="sticky top-0 z-50 border-b border-[#D4D4D4]/60 bg-white/95 backdrop-blur">
+      <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-5">
+        <div class="text-xl font-semibold text-[#0F5C45]">Urban<span class="font-extrabold">Insights</span></div>
+        <nav class="hidden items-center gap-8 text-sm font-medium text-[#262626] md:flex">
+          <a class="transition-colors hover:text-[#0F5C45]" href="#visie">Visie</a>
+          <a class="transition-colors hover:text-[#0F5C45]" href="#situatie">Situatie</a>
+          <a class="transition-colors hover:text-[#0F5C45]" href="#doelgroep">Doelgroep</a>
+          <a class="transition-colors hover:text-[#0F5C45]" href="#scope">Scope</a>
+          <a class="transition-colors hover:text-[#0F5C45]" href="#sprint">Sprint 1</a>
+          <a class="transition-colors hover:text-[#0F5C45]" href="#team">Team</a>
         </nav>
       </div>
     </header>
 
     <main>
-      <!-- <section class="relative min-h-[88vh] overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/achtergrond hero section.png');"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/20"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.05),rgba(0,0,0,0.45))]"></div>
-        <div class="relative flex min-h-[88vh] w-full items-end justify-start px-6 pb-14 md:px-12 md:pb-20">
-          <div class="max-w-4xl text-left text-white">
-            <h1 class="text-6xl font-semibold leading-[0.92] tracking-tight md:text-8xl">
-              Jouw Wijk
-              <br />
-              Zichtbaar in Data
+      <section class="bg-white py-16" id="hero">
+        <div class="mx-auto grid w-full max-w-6xl items-center gap-12 px-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <h1 class="mt-4 text-4xl font-extrabold leading-tight text-[#262626] md:text-5xl lg:text-6xl">
+              Jouw wijk <span class="text-[#0F5C45]">zichtbaar</span> in data.
             </h1>
-            <p class="mt-5 max-w-2xl text-xl leading-8 text-white/90 md:text-2xl">
-              Interactieve wijkborden maken plannen en projecten in jouw wijk zichtbaar en nodigen bewoners uit om direct mee te denken.
+            <p class="mt-6 max-w-xl text-base leading-7 text-[#262626]/70">
+              Interactieve wijkborden maken stedelijke plannen, werkzaamheden en veranderingen in de wijk inzichtelijk. Door data zichtbaar en begrijpelijk te maken in de openbare ruimte, kunnen bewoners laagdrempelig meedenken en invloed uitoefenen op de ontwikkeling van hun leefomgeving.
             </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a class="inline-flex items-center gap-2 rounded-full bg-[#0F5C45] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5" href="#visie">
+                Bekijk Visie
+                <span aria-hidden="true">-&gt;</span>
+              </a>
+              <a class="inline-flex items-center gap-2 rounded-full border border-[#D4D4D4] px-6 py-3 text-sm font-semibold text-[#262626] shadow-sm transition hover:-translate-y-0.5" href="#sprint">
+                Sprint 1
+              </a>
+            </div>
+          </div>
+          <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <div class="h-[320px] w-full rounded-[52px] bg-[#C3E0B9] md:h-[360px] lg:h-[420px]"></div>
           </div>
         </div>
-      </section> -->
+      </section>
 
       <section class="bg-white py-20" id="visie">
         <div class="mx-auto w-full max-w-6xl px-6">
-          <div class="reveal rounded-2xl border border-slate-200 bg-white p-8 shadow-sm opacity-0 translate-y-3 transition-all duration-500 ease-out md:p-10">
-            <span class="inline-flex rounded-full bg-ui-primary-soft px-3 py-1 text-xs font-medium uppercase tracking-[0.08em] text-ui-primary">Handreiking - Oplevering Sprint 0</span>
-            <h1 class="mt-6 text-4xl font-semibold leading-tight tracking-tight text-slate-900 md:text-5xl">Productvisie en Ontwerpvraag</h1>
-            <p class="mt-6 text-lg leading-8 text-slate-700">
-              Jouw wijk zichtbaar in data. Interactieve wijkborden maken stedelijke plannen, werkzaamheden en veranderingen in de wijk inzichtelijk. Door data zichtbaar en begrijpelijk te maken in de openbare ruimte, kunnen bewoners laagdrempelig meedenken en invloed uitoefenen op de ontwikkeling van hun leefomgeving.
+          <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#88D498]">Productvisie</p>
+            <h2 class="mt-3 text-3xl font-extrabold text-[#262626] md:text-4xl">Ontwerpvisie & Ontwerpvraag</h2>
+          </div>
+          <div class="reveal mt-8 rounded-3xl soft-panel p-6 opacity-0 translate-y-3 transition-all duration-500 ease-out md:p-8">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#0F5C45]">Ontwerpvraag</p>
+            <p class="mt-3 text-lg font-semibold text-[#262626]">
+              Hoe kunnen we buurtbewoners van de gemeente Rotterdam op een toegankelijke manier betrekken bij ontwikkelingen in hun wijk?
             </p>
-            <div class="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-6 text-slate-800">
-              <p class="text-sm font-semibold uppercase tracking-wide text-amber-800">Ontwerpvraag</p>
-              <p class="mt-2 leading-7">
-                Hoe kunnen we buurtbewoners van de gemeente Rotterdam op een toegankelijke manier betrekken bij ontwikkelingen in hun wijk?
-              </p>
-            </div>
           </div>
-
-          <div class="reveal mt-8 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm opacity-0 translate-y-3 transition-all duration-500 ease-out">
-            <img class="mx-auto h-auto w-full max-w-3xl rounded-xl object-cover" src="images/conceptart1.png" alt="Placeholder van een interactief wijkbord in de openbare ruimte" />
-          </div>
-
-          <div class="reveal mt-8 grid gap-4 opacity-0 translate-y-3 transition-all duration-500 ease-out md:grid-cols-3">
-            <article class="rounded-xl border border-slate-200 bg-white p-6">
-              <h3 class="text-base font-semibold text-ui-primary">Gemeente Rotterdam</h3>
-              <p class="mt-3 leading-7 text-slate-700">Samen bouwen aan een leefbare, duurzame en innovatieve stad.</p>
+          <div class="reveal mt-10 grid gap-6 opacity-0 translate-y-3 transition-all duration-500 ease-out md:grid-cols-3">
+            <article class="card-outline rounded-3xl p-6 text-center shadow-sm">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#C3E0B9] text-[#0F5C45]">
+                <span class="text-sm font-semibold">GR</span>
+              </div>
+              <h3 class="mt-4 text-base font-semibold text-[#262626]">Gemeente Rotterdam</h3>
+              <p class="mt-2 text-sm text-[#262626]/70">Samen bouwen aan een leefbare, duurzame en innovatieve stad.</p>
             </article>
-            <article class="rounded-xl border border-slate-200 bg-white p-6">
-              <h3 class="text-base font-semibold text-ui-primary">Cityverse</h3>
-              <p class="mt-3 leading-7 text-slate-700">De digitale samenleving voor creativiteit en transparantie in Rotterdam.</p>
+            <article class="card-outline rounded-3xl p-6 text-center shadow-sm">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#C3E0B9] text-[#0F5C45]">
+                <span class="text-sm font-semibold">CV</span>
+              </div>
+              <h3 class="mt-4 text-base font-semibold text-[#262626]">Cityverse</h3>
+              <p class="mt-2 text-sm text-[#262626]/70">De digitale samenleving voor creativiteit en transparantie in Rotterdam.</p>
             </article>
-            <article class="rounded-xl border border-slate-200 bg-white p-6">
-              <h3 class="text-base font-semibold text-ui-primary">Wijkbewoners</h3>
-              <p class="mt-3 leading-7 text-slate-700">Cityverse brengt een urban digital twin die bewoners en data ontwikkelingen verbindt.</p>
+            <article class="card-outline rounded-3xl p-6 text-center shadow-sm">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#C3E0B9] text-[#0F5C45]">
+                <span class="text-sm font-semibold">WB</span>
+              </div>
+              <h3 class="mt-4 text-base font-semibold text-[#262626]">Wijkbewoners</h3>
+              <p class="mt-2 text-sm text-[#262626]/70">Cityverse brengt een urban digital twin die bewoners en data ontwikkelingen verbindt.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="bg-slate-50 py-20" id="situatie">
+      <section class="bg-white py-20" id="cityverse">
         <div class="mx-auto w-full max-w-6xl px-6">
-          <div class="grid gap-8">
-            <article class="reveal rounded-2xl border border-slate-200 bg-white p-8 shadow-sm opacity-0 translate-y-3 transition-all duration-500 ease-out md:p-10">
-              <h2 class="text-2xl font-semibold tracking-tight text-ui-primary md:text-3xl">Huidige situatie</h2>
-              <div class="mt-6 space-y-4 text-base leading-8 text-slate-700">
-                <li>De gemeente communiceert geplande werkzaamheden, bouwprojecten en infrastructurele aanpassingen voornamelijk via digitale kanalen zoals websites, PDF's, participatieplatforms, (verkeers)borden en brieven.</li>
+          <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#88D498]">Cityverse Deskresearch</p>
+            <h2 class="mt-3 text-3xl font-extrabold text-[#262626] md:text-4xl">Wat is de Cityverse?</h2>
+          </div>
+          <p class="reveal mt-5 max-w-3xl text-base leading-7 text-[#262626]/70 opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            De Cityverse is een platform dat de fysieke stad en de digitale wereld verbindt. Het is publiek, mensgericht en democratisch ingericht, met nadruk op open standaarden en controle van burgers over hun eigen data.
+          </p>
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
+            <div class="card-outline rounded-3xl p-6">
+              <h3 class="text-base font-semibold text-[#0F5C45] title-with-icon">
+                <i data-feather="target"></i>
+                Doelen voor steden
+              </h3>
+              <ul class="mt-3 list-disc space-y-2 pl-6 text-sm text-[#262626]/70">
+                <li>Congestie verminderen</li>
+                <li>Luchtkwaliteit verbeteren</li>
+                <li>Betere beleidskeuzes maken</li>
+                <li>Overheidsprocessen efficienter maken</li>
+              </ul>
+            </div>
+            <div class="card-outline rounded-3xl p-6">
+              <h3 class="text-base font-semibold text-[#0F5C45] title-with-icon">
+                <i data-feather="user"></i>
+                Voor burgers
+              </h3>
+              <ul class="mt-3 list-disc space-y-2 pl-6 text-sm text-[#262626]/70">
+                <li>Meer inzicht in plannen via 3D-modellen en simulaties</li>
+                <li>Inspraak voorafgaand aan veranderingen</li>
+                <li>Samenwerking met stadsplanners (co-creatie)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-8 grid gap-6 md:grid-cols-3">
+            <div class="card-outline rounded-3xl p-6">
+              <h3 class="text-base font-semibold text-[#0F5C45] title-with-icon">
+                <i data-feather="heart"></i>
+                Kernwaarden
+              </h3>
+              <ul class="mt-3 list-disc space-y-2 pl-6 text-sm text-[#262626]/70">
+                <li>Duurzaamheid</li>
+                <li>Inclusie</li>
+                <li>Participatie</li>
+                <li>Open standaarden</li>
+                <li>Veerkracht</li>
+                <li>Digitale soevereiniteit</li>
+              </ul>
+            </div>
+            <div class="card-outline rounded-3xl p-6">
+              <h3 class="text-base font-semibold text-[#0F5C45] title-with-icon">
+                <i data-feather="grid"></i>
+                Bouwblokken
+              </h3>
+              <ul class="mt-3 list-disc space-y-2 pl-6 text-sm text-[#262626]/70">
+                <li>Circulaire economie</li>
+                <li>Infrastructuur en klimaat</li>
+                <li>Haveneconomie</li>
+                <li>Toekomst van werk</li>
+                <li>Digitale identiteit</li>
+                <li>Cyberveiligheid</li>
+                <li>Zorg en preventie</li>
+                <li>Publieke dienstverlening</li>
+                <li>Stedelijke ontwikkeling en openbare ruimte</li>
+              </ul>
+            </div>
+            <div class="card-outline rounded-3xl p-6">
+              <h3 class="text-base font-semibold text-[#0F5C45] title-with-icon">
+                <i data-feather="tool"></i>
+                Werkplaatsen
+              </h3>
+              <ul class="mt-3 list-disc space-y-2 pl-6 text-sm text-[#262626]/70">
+                <li>AI en digital humans</li>
+                <li>x-CITE (EU-project)</li>
+                <li>Web3 en datakluis</li>
+                <li>Ecosysteem van toepassingen</li>
+                <li>Digitale verbeelding (AR/VR en 3D)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="reveal mt-8 rounded-3xl soft-panel p-6 opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-sm text-[#262626]/70">
+              De Cityverse gebruikt API's en open standaarden zoals OpenAPI en GraphQL, zodat systemen kunnen samenwerken zonder afhankelijkheid van een partij.
+            </p>
+            <p class="mt-3 text-sm text-[#262626]/70">
+              Korte conclusie: een digitale laag over de stad die burgers actief betrekt, data veilig en lokaal houdt en technologie inzet om steden slimmer, duurzamer en inclusiever te maken.
+            </p>
+          </div>
+          <div class="reveal mt-8 rounded-3xl border border-dashed border-[#88D498] p-6 text-center opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#0F5C45]">Stakeholders foto</p>
+            <img class="mt-4 h-auto w-full rounded-2xl border border-[#D4D4D4] object-cover" src="../photo's/Sprint%201%20Stakeholdermap.jpg" alt="Stakeholdermap Sprint 1" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section-dark py-20" id="situatie">
+        <div class="mx-auto w-full max-w-6xl px-6">
+          <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#88D498]">Analyse</p>
+            <h2 class="mt-3 text-3xl font-extrabold text-white md:text-4xl">Huidige & Gewenste Situatie</h2>
+          </div>
+          <div class="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+            <article class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+              <h3 class="flex items-center gap-3 text-lg font-semibold text-white title-with-icon">
+                <i data-feather="alert-circle"></i>
+                Huidige situatie
+              </h3>
+              <ul class="mt-5 space-y-4 text-sm leading-7 text-[#D4D4D4]">
+                <li>De gemeente communiceert geplande werkzaamheden voornamelijk via digitale kanalen zoals websites, PDF's, participatieplatforms, (verkeers)borden en brieven.</li>
                 <li>Deze informatie is verspreid over meerdere bronnen en vaak abstract, tekstueel.</li>
-                <li>Bewoners ervaren erg beperkte zichtbaarheid van plannen op wijkniveau en hebben weinig inzicht in de timing, impact en samenhang van projecten.</li>
+                <li>Bewoners ervaren beperkte zichtbaarheid van plannen op wijkniveau en hebben weinig inzicht in timing, impact en samenhang.</li>
                 <li>Als participatie plaatsvindt via online consultaties is dat door middel van enquetes.</li>
                 <li>Betrokken partijen zijn onder andere bewoners, gemeente, beleidsmakers, ontwerpers, aannemers en bedrijven.</li>
-              </div>
+              </ul>
             </article>
-
             <article class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
-              <h2 class="text-2xl font-semibold tracking-tight text-ui-primary md:text-3xl">Gewenste situatie</h2>
-              <div class="mt-6 grid gap-4 lg:grid-cols-12">
-                <div class="grid h-full gap-2 lg:col-span-4 lg:grid-rows-7">
-                  <button type="button" data-desired-trigger="specifiek" class="h-full w-full rounded-xl border border-ui-primary bg-ui-primary px-4 py-3 text-left text-sm font-medium text-white transition-colors">Specifiek en concreet</button>
-                  <button type="button" data-desired-trigger="meetbaar" class="h-full w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-left text-sm font-medium text-slate-700 transition-colors hover:border-ui-primary/40">Meetbaar</button>
-                  <button type="button" data-desired-trigger="tijdgebonden" class="h-full w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-left text-sm font-medium text-slate-700 transition-colors hover:border-ui-primary/40">Tijdgebonden</button>
-                  <button type="button" data-desired-trigger="realistisch" class="h-full w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-left text-sm font-medium text-slate-700 transition-colors hover:border-ui-primary/40">Realistisch en aanvaardbaar</button>
-                  <button type="button" data-desired-trigger="positief" class="h-full w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-left text-sm font-medium text-slate-700 transition-colors hover:border-ui-primary/40">Positief geformuleerd</button>
-                  <button type="button" data-desired-trigger="toekomstgericht" class="h-full w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-left text-sm font-medium text-slate-700 transition-colors hover:border-ui-primary/40">Toekomstgericht</button>
-                  <button type="button" data-desired-trigger="gap" class="h-full w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-left text-sm font-medium text-slate-700 transition-colors hover:border-ui-primary/40">Inzicht in het "gat" (gap analysis)</button>
+              <h3 class="flex items-center gap-3 text-lg font-semibold text-white title-with-icon">
+                <i data-feather="check-circle"></i>
+                Gewenste situatie
+              </h3>
+              <div class="mt-5 space-y-4">
+                <div class="dark-panel rounded-2xl p-4">
+                  <p class="text-sm font-semibold text-white">Specifiek en concreet</p>
+                  <p class="mt-2 text-sm text-[#D4D4D4]">Bewoners zien in hun eigen wijk actuele, visueel duidelijke informatie over wat er speelt en verandert.</p>
                 </div>
-
-                <div class="h-full rounded-2xl border border-slate-200 bg-white p-6 lg:col-span-8 md:p-8">
-                  <h3 data-desired-title class="text-xl font-semibold text-slate-900">Specifiek en concreet</h3>
-                  <p data-desired-text class="mt-3 text-base leading-8 text-slate-700">
-                    Bewoners kunnen in hun eigen wijk, in de openbare ruimte, actuele en visueel duidelijke informatie zien over wat er speelt en wat er gaat veranderen in de buurt op een scherm.
-                  </p>
-                  <div class="mt-5 overflow-hidden rounded-xl border border-slate-200 bg-slate-50 p-3">
-                    <img data-desired-image class="h-auto w-full rounded-lg object-cover" src="https://placehold.co/1200x620/e8f5ed/1f7a4d?text=Specifiek+en+concreet" alt="Placeholder afbeelding bij Specifiek en concreet" />
-                  </div>
+                <div class="dark-panel rounded-2xl p-4">
+                  <p class="text-sm font-semibold text-white">Meetbaar</p>
+                  <p class="mt-2 text-sm text-[#D4D4D4]">Meer bewoners doen mee, zijn beter geinformeerd en geven feedback via bijvoorbeeld QR-codes.</p>
                 </div>
-              </div>
-
-              <div class="hidden">
-                <div data-desired-content data-key="specifiek" data-title="Specifiek en concreet" data-image="https://placehold.co/1200x620/e8f5ed/1f7a4d?text=Specifiek+en+concreet" data-alt="Placeholder afbeelding bij Specifiek en concreet">Bewoners kunnen in hun eigen wijk, in de openbare ruimte, actuele en visueel duidelijke informatie zien over wat er speelt en wat er gaat veranderen in de buurt op een scherm.</div>
-                <div data-desired-content data-key="meetbaar" data-title="Meetbaar" data-image="https://placehold.co/1200x620/eaf4ff/1e4f8a?text=Meetbaar" data-alt="Placeholder afbeelding bij Meetbaar">We zien succes terug in meer bewoners die meedoen, beter geinformeerd zijn en feedback geven via bijvoorbeeld QR-codes. Ook is zichtbaar dat deze input echt wordt meegenomen in plannen en besluiten.</div>
-                <div data-desired-content data-key="tijdgebonden" data-title="Tijdgebonden" data-image="https://placehold.co/1200x620/fff4e7/9a5d00?text=Tijdgebonden" data-alt="Placeholder afbeelding bij Tijdgebonden">Dit alles gebeurt binnen een duidelijke projectperiode, waarin participatie en verwerking van feedback worden gevolgd en geevalueerd.</div>
-                <div data-desired-content data-key="realistisch" data-title="Realistisch en aanvaardbaar" data-image="https://placehold.co/1200x620/f2f4f7/334155?text=Realistisch+en+aanvaardbaar" data-alt="Placeholder afbeelding bij Realistisch en aanvaardbaar">De aanpak is praktisch en haalbaar, omdat er gebruik wordt gemaakt van bestaande plekken in de wijk en digitale middelen zoals online enquetes. Bewoners en andere betrokkenen kunnen hier makkelijk aan meedoen.</div>
-                <div data-desired-content data-key="positief" data-title="Positief geformuleerd" data-image="https://placehold.co/1200x620/fff7ed/b45309?text=Positief+geformuleerd" data-alt="Placeholder afbeelding bij Positief geformuleerd">De focus ligt op het zichtbaar maken van plannen, het betrekken van bewoners en het laten zien dat hun mening telt.</div>
-                <div data-desired-content data-key="toekomstgericht" data-title="Toekomstgericht" data-image="https://placehold.co/1200x620/ecfeff/155e75?text=Toekomstgericht" data-alt="Placeholder afbeelding bij Toekomstgericht">In de toekomst voelen bewoners zich beter geinformeerd en meer betrokken bij plannen en ontwikkelingen in hun eigen wijk.</div>
-                <div data-desired-content data-key="gap" data-title="Inzicht in het &quot;gat&quot; (gap analysis)" data-image="https://placehold.co/1200x620/fef3f2/9f1239?text=Gap+analysis" data-alt="Placeholder afbeelding bij gap analysis">Door deze gewenste situatie wordt duidelijk wat er nu nog mist in wijkinformatie en bewonersparticipatie, en waar het project concreet verbetering brengt.</div>
+                <div class="dark-panel rounded-2xl p-4">
+                  <p class="text-sm font-semibold text-white">Tijdgebonden</p>
+                  <p class="mt-2 text-sm text-[#D4D4D4]">Participatie en verwerking van feedback worden gevolgd en geevalueerd binnen de projectperiode.</p>
+                </div>
+                <div class="dark-panel rounded-2xl p-4">
+                  <p class="text-sm font-semibold text-white">Realistisch en aanvaardbaar</p>
+                  <p class="mt-2 text-sm text-[#D4D4D4]">De aanpak is haalbaar met bestaande plekken in de wijk en digitale middelen zoals enquetes.</p>
+                </div>
+                <div class="dark-panel rounded-2xl p-4">
+                  <p class="text-sm font-semibold text-white">Positief geformuleerd</p>
+                  <p class="mt-2 text-sm text-[#D4D4D4]">De focus ligt op plannen zichtbaar maken en bewoners laten zien dat hun mening telt.</p>
+                </div>
+                <div class="dark-panel rounded-2xl p-4">
+                  <p class="text-sm font-semibold text-white">Toekomstgericht</p>
+                  <p class="mt-2 text-sm text-[#D4D4D4]">Bewoners voelen zich beter geinformeerd en meer betrokken bij ontwikkelingen.</p>
+                </div>
+                <div class="dark-panel rounded-2xl p-4">
+                  <p class="text-sm font-semibold text-white">Gap analysis</p>
+                  <p class="mt-2 text-sm text-[#D4D4D4]">De gewenste situatie laat zien wat er nu nog mist in wijkinformatie en participatie.</p>
+                </div>
               </div>
             </article>
           </div>
@@ -185,223 +327,339 @@
 
       <section class="bg-white py-20" id="doelgroep">
         <div class="mx-auto w-full max-w-6xl px-6">
-          <article class="reveal rounded-2xl border border-slate-200 bg-white p-8 shadow-sm opacity-0 translate-y-3 transition-all duration-500 ease-out md:p-10">
-            <h2 class="text-2xl font-semibold tracking-tight text-ui-primary md:text-3xl">Doelgroep, behoeften en context</h2>
-            <div class="mt-6 space-y-6">
-              <div class="space-y-4 text-base leading-8 text-slate-700">
-                <p>De doelgroep bestaat uit buurtbewoners van de gemeente Rotterdam die direct te maken hebben met ontwikkelingen in hun wijk, zoals bouwprojecten, herinrichting van openbare ruimte of duurzaamheids initiatieven.</p>
-                <p>Binnen deze groep is sprake van diversiteit in:</p>
-                <ul class="list-disc space-y-2 pl-6">
-                  <li>Leeftijd (jongeren, gezinnen, ouderen)</li>
-                  <li>Culturele achtergrond en taalvaardigheid</li>
-                  <li>Digitale vaardigheden</li>
-                  <li>Mate van betrokkenheid bij de wijk</li>
-                </ul>
-                <div class="my-2 h-px bg-slate-200"></div>
-                <div>
-                  <h3 class="text-lg font-semibold text-slate-900">Behoeften</h3>
-                  <ul class="mt-3 list-disc space-y-2 pl-6">
-                    <li>Duidelijke en begrijpelijke informatie over wat er gaande is en verandert in hun omgeving</li>
-                    <li>Inzicht in hoe beslissingen invloed hebben op hun dagelijkse leven</li>
-                    <li>De mogelijkheid om hun mening te geven</li>
-                    <li>Transparantie over wat er met hun input gebeurt</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 class="text-lg font-semibold text-slate-900">Context</h3>
-                  <p class="mt-2">De doelgroep beweegt zich voornamelijk binnen hun eigen wijk. Betrokkenheid ontstaat vooral wanneer informatie herkenbaar, relevant en zichtbaar is in hun directe leefomgeving.</p>
-                </div>
-              </div>
-              <div>
-                <img class="mx-auto h-auto w-full max-w-4xl rounded-xl border border-slate-200 object-contain" src="images/conceptart2.png" alt="Placeholder van buurtbewoners die participeren in wijkontwikkeling" />
+          <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#88D498]">Doelgroep</p>
+            <h2 class="mt-3 text-3xl font-extrabold text-[#262626] md:text-4xl">Doelgroep, behoeften & context</h2>
+          </div>
+          <p class="reveal mt-5 max-w-3xl text-base leading-7 text-[#262626]/70 opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            De doelgroep bestaat uit buurtbewoners van de gemeente Rotterdam die direct te maken hebben met ontwikkelingen in hun wijk, zoals bouwprojecten, herinrichting van openbare ruimte of duurzaamheidsinitiatieven.
+          </p>
+          <div class="mt-10 grid gap-8 lg:grid-cols-2">
+            <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+              <h3 class="text-base font-semibold text-[#262626] title-with-icon">
+                <i data-feather="users"></i>
+                Diversiteit binnen de groep
+              </h3>
+              <div class="mt-4 space-y-3">
+                <div class="pill rounded-2xl px-4 py-3 text-sm text-[#262626]">Leeftijd (jongeren, gezinnen, ouderen)</div>
+                <div class="pill rounded-2xl px-4 py-3 text-sm text-[#262626]">Culturele achtergrond en taalvaardigheid</div>
+                <div class="pill rounded-2xl px-4 py-3 text-sm text-[#262626]">Digitale vaardigheden</div>
+                <div class="pill rounded-2xl px-4 py-3 text-sm text-[#262626]">Mate van betrokkenheid bij de wijk</div>
               </div>
             </div>
-          </article>
+            <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+              <h3 class="text-base font-semibold text-[#262626] title-with-icon">
+                <i data-feather="list"></i>
+                Behoeften
+              </h3>
+              <div class="mt-4 space-y-3">
+                <div class="pill rounded-2xl px-4 py-3 text-sm text-[#262626]">Duidelijke en begrijpelijke informatie over wat er gaande is.</div>
+                <div class="pill rounded-2xl px-4 py-3 text-sm text-[#262626]">Inzicht in hoe beslissingen invloed hebben op het dagelijks leven.</div>
+                <div class="pill rounded-2xl px-4 py-3 text-sm text-[#262626]">De mogelijkheid om hun mening te geven.</div>
+                <div class="pill rounded-2xl px-4 py-3 text-sm text-[#262626]">Transparantie over wat er met hun input gebeurt.</div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal mt-10 rounded-3xl soft-panel p-6 opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <h3 class="text-base font-semibold text-[#262626] title-with-icon">
+              <i data-feather="map-pin"></i>
+              Context
+            </h3>
+            <p class="mt-2 text-sm text-[#262626]/70">
+              De doelgroep beweegt zich voornamelijk binnen hun eigen wijk. Betrokkenheid ontstaat vooral wanneer informatie herkenbaar, relevant en zichtbaar is in hun directe leefomgeving.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section class="bg-slate-50 py-20" id="scope">
+      <section class="section-dark py-20" id="scope">
         <div class="mx-auto w-full max-w-6xl px-6">
-          <div class="grid gap-8">
-            <article class="reveal rounded-2xl border border-slate-200 bg-white p-8 shadow-sm opacity-0 translate-y-3 transition-all duration-500 ease-out md:p-10">
-              <h2 class="text-2xl font-semibold tracking-tight text-ui-primary md:text-3xl">Randvoorwaarden en scope</h2>
-              <div class="mt-6 grid gap-4 xl:grid-cols-4">
-                <button type="button" data-flip-card class="flip-card h-80 text-left transition-transform duration-300 hover:-translate-y-1">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-face rounded-2xl border border-emerald-200/70 bg-emerald-50 p-5 shadow-sm">
-                      <p class="text-xs font-semibold uppercase tracking-[0.12em] text-ui-primary">Kaart 1</p>
-                      <h3 class="mt-3 text-lg font-semibold text-slate-900">Randvoorwaarden</h3>
-                      <p class="mt-3 text-sm leading-7 text-slate-600">Klik om details te bekijken.</p>
-                    </div>
-                    <div class="flip-card-face flip-card-back overflow-y-auto rounded-2xl border border-emerald-200/70 bg-white p-5 shadow-sm">
-                      <h3 class="text-lg font-semibold text-slate-900">Randvoorwaarden</h3>
-                      <ul class="mt-3 list-disc space-y-2 pl-6 text-sm leading-7 text-slate-700">
-                        <li>Het systeem moet geschikt zijn voor plaatsing in de openbare ruimte.</li>
-                        <li>Het ontwerp moet weerbestendig en vandalismebestendig zijn. (ipo - buiten scope)</li>
-                        <li>De oplossing moet voldoen aan geldende wet- en regelgeving rondom privacy en data.</li>
-                        <li>Er is geen verplicht gebruik van persoonlijke accounts.</li>
-                        <li>Het systeem maakt gebruik van bestaande databronnen van de Gemeente Rotterdam.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </button>
-
-                <button type="button" data-flip-card class="flip-card h-80 text-left transition-transform duration-300 hover:-translate-y-1">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-face rounded-2xl border border-sky-200/70 bg-sky-50 p-5 shadow-sm">
-                      <p class="text-xs font-semibold uppercase tracking-[0.12em] text-ui-primary">Kaart 2</p>
-                      <h3 class="mt-3 text-lg font-semibold text-slate-900">Binnen scope</h3>
-                      <p class="mt-3 text-sm leading-7 text-slate-600">Klik om details te bekijken.</p>
-                    </div>
-                    <div class="flip-card-face flip-card-back overflow-y-auto rounded-2xl border border-sky-200/70 bg-white p-5 shadow-sm">
-                      <h3 class="text-lg font-semibold text-slate-900">Binnen scope</h3>
-                      <ul class="mt-3 list-disc space-y-2 pl-6 text-sm leading-7 text-slate-700">
-                        <li>Conceptontwikkeling van interactieve wijkborden.</li>
-                        <li>Ontwerp van informatiearchitectuur en interactiemogelijkheden.</li>
-                        <li>Verkenning van participatievormen via fysieke interfaces.</li>
-                        <li>Koppeling met stedelijke data en een cityverse-achtig model.</li>
-                        <li>De implementatie maken zover mogelijk is.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </button>
-
-                <button type="button" data-flip-card class="flip-card h-80 text-left transition-transform duration-300 hover:-translate-y-1">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-face rounded-2xl border border-amber-200/70 bg-amber-50 p-5 shadow-sm">
-                      <p class="text-xs font-semibold uppercase tracking-[0.12em] text-ui-primary">Kaart 3</p>
-                      <h3 class="mt-3 text-lg font-semibold text-slate-900">Buiten scope</h3>
-                      <p class="mt-3 text-sm leading-7 text-slate-600">Klik om details te bekijken.</p>
-                    </div>
-                    <div class="flip-card-face flip-card-back overflow-y-auto rounded-2xl border border-amber-200/70 bg-white p-5 shadow-sm">
-                      <h3 class="text-lg font-semibold text-slate-900">Buiten scope</h3>
-                      <ul class="mt-3 list-disc space-y-2 pl-6 text-sm leading-7 text-slate-700">
-                        <li>Opschaling naar meerdere steden.</li>
-                        <li>Juridische besluitvorming en beleidsuitvoering.</li>
-                      </ul>
-                    </div>
-                  </div>
-                </button>
-
-                <button type="button" data-flip-card class="flip-card h-80 text-left transition-transform duration-300 hover:-translate-y-1">
-                  <div class="flip-card-inner">
-                    <div class="flip-card-face rounded-2xl border border-rose-200/70 bg-rose-50 p-5 shadow-sm">
-                      <p class="text-xs font-semibold uppercase tracking-[0.12em] text-ui-primary">Kaart 4</p>
-                      <h3 class="mt-3 text-lg font-semibold text-slate-900">Beperkingen</h3>
-                      <p class="mt-3 text-sm leading-7 text-slate-600">Klik om details te bekijken.</p>
-                    </div>
-                    <div class="flip-card-face flip-card-back overflow-y-auto rounded-2xl border border-rose-200/70 bg-white p-5 shadow-sm">
-                      <h3 class="text-lg font-semibold text-slate-900">Beperkingen</h3>
-                      <p class="mt-3 text-sm leading-7 text-slate-700">Beperkte tijd en middelen binnen de sprint.</p>
-                    </div>
-                  </div>
-                </button>
+          <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#88D498]">Scope</p>
+            <h2 class="mt-3 text-3xl font-extrabold text-white md:text-4xl">Randvoorwaarden & Scope</h2>
+          </div>
+          <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            <button type="button" data-flip-card class="flip-card h-60 text-left transition-transform duration-300 hover:-translate-y-1">
+              <div class="flip-card-inner">
+                <div class="flip-card-face rounded-3xl bg-[#C3E0B9] p-6 text-center shadow-sm">
+                  <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#0F5C45]">RV</div>
+                  <h3 class="mt-4 text-base font-semibold text-[#0F5C45] title-with-icon justify-center">
+                    <i data-feather="shield"></i>
+                    Randvoorwaarden
+                  </h3>
+                  <p class="mt-3 text-xs uppercase tracking-[0.2em] text-[#0F5C45]/70">Klik om om te draaien</p>
+                </div>
+                <div class="flip-card-face flip-card-back rounded-3xl bg-[#0F5C45] p-6 text-left text-white shadow-sm">
+                  <h3 class="text-base font-semibold">Randvoorwaarden</h3>
+                  <ul class="mt-3 list-disc space-y-2 pl-6 text-xs text-[#D4D4D4]">
+                    <li>Geschikt voor plaatsing in de openbare ruimte.</li>
+                    <li>Voldoet aan privacy- en data regelgeving.</li>
+                    <li>Gebruik van bestaande databronnen van de Gemeente Rotterdam.</li>
+                  </ul>
+                </div>
               </div>
-            </article>
+            </button>
+            <button type="button" data-flip-card class="flip-card h-60 text-left transition-transform duration-300 hover:-translate-y-1">
+              <div class="flip-card-inner">
+                <div class="flip-card-face rounded-3xl bg-[#C3E0B9] p-6 text-center shadow-sm">
+                  <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#0F5C45]">BS</div>
+                  <h3 class="mt-4 text-base font-semibold text-[#0F5C45] title-with-icon justify-center">
+                    <i data-feather="check-circle"></i>
+                    Binnen scope
+                  </h3>
+                  <p class="mt-3 text-xs uppercase tracking-[0.2em] text-[#0F5C45]/70">Klik om om te draaien</p>
+                </div>
+                <div class="flip-card-face flip-card-back rounded-3xl bg-[#0F5C45] p-6 text-left text-white shadow-sm">
+                  <h3 class="text-base font-semibold">Binnen scope</h3>
+                  <ul class="mt-3 list-disc space-y-2 pl-6 text-xs text-[#D4D4D4]">
+                    <li>Conceptontwikkeling van interactieve wijkborden.</li>
+                    <li>Ontwerp van informatiearchitectuur en interactie.</li>
+                    <li>Koppeling met stedelijke data.</li>
+                  </ul>
+                </div>
+              </div>
+            </button>
+            <button type="button" data-flip-card class="flip-card h-60 text-left transition-transform duration-300 hover:-translate-y-1">
+              <div class="flip-card-inner">
+                <div class="flip-card-face rounded-3xl bg-[#C3E0B9] p-6 text-center shadow-sm">
+                  <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#0F5C45]">BS</div>
+                  <h3 class="mt-4 text-base font-semibold text-[#0F5C45] title-with-icon justify-center">
+                    <i data-feather="x-circle"></i>
+                    Buiten scope
+                  </h3>
+                  <p class="mt-3 text-xs uppercase tracking-[0.2em] text-[#0F5C45]/70">Klik om om te draaien</p>
+                </div>
+                <div class="flip-card-face flip-card-back rounded-3xl bg-[#0F5C45] p-6 text-left text-white shadow-sm">
+                  <h3 class="text-base font-semibold">Buiten scope</h3>
+                  <ul class="mt-3 list-disc space-y-2 pl-6 text-xs text-[#D4D4D4]">
+                    <li>Opschaling naar meerdere steden.</li>
+                    <li>Juridische besluitvorming en beleidsuitvoering.</li>
+                  </ul>
+                </div>
+              </div>
+            </button>
+            <button type="button" data-flip-card class="flip-card h-60 text-left transition-transform duration-300 hover:-translate-y-1">
+              <div class="flip-card-inner">
+                <div class="flip-card-face rounded-3xl bg-[#C3E0B9] p-6 text-center shadow-sm">
+                  <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white text-[#0F5C45]">BP</div>
+                  <h3 class="mt-4 text-base font-semibold text-[#0F5C45] title-with-icon justify-center">
+                    <i data-feather="alert-triangle"></i>
+                    Beperkingen
+                  </h3>
+                  <p class="mt-3 text-xs uppercase tracking-[0.2em] text-[#0F5C45]/70">Klik om om te draaien</p>
+                </div>
+                <div class="flip-card-face flip-card-back rounded-3xl bg-[#0F5C45] p-6 text-left text-white shadow-sm">
+                  <h3 class="text-base font-semibold">Beperkingen</h3>
+                  <p class="mt-3 text-xs text-[#D4D4D4]">Beperkte tijd en middelen binnen de sprint.</p>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
 
-            <article class="reveal rounded-2xl border border-slate-200 bg-white p-8 shadow-sm opacity-0 translate-y-3 transition-all duration-500 ease-out md:p-10">
-              <h2 class="text-2xl font-semibold tracking-tight text-ui-primary md:text-3xl">Backlog (initieel)</h2>
-              <ul class="mt-6 list-disc space-y-2 pl-6 text-base leading-8 text-slate-700">
-                <li>Als gemeente wil ik dat er onderzoek gedaan wordt naar de zichtbaarheid van gemeente plannen op wijkniveau.</li>
-                <li>Als gemeente wil ik dat er onderzoek gedaan wordt over de behoefte van beschikbare informatie.</li>
-                <li>Als gemeente wil ik dat er een concept prototype gemaakt wordt om te testen of er behoefte is naar deze informatie.</li>
+      <section class="section-dark py-20" id="brainstorm">
+        <div class="mx-auto w-full max-w-6xl px-6">
+          <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#88D498]">(Negatieve) brainstorm</p>
+            <h2 class="mt-3 text-3xl font-extrabold text-white md:text-4xl">Risicos en aandachtspunten</h2>
+          </div>
+          <p class="reveal mt-5 max-w-3xl text-base leading-7 text-[#D4D4D4] opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            Deze sessie richt zich op het bewust benoemen van zwakke punten en risicos in het prototype. Door negatief te denken, worden verbeterpunten zichtbaar en kan het project sterker en betrouwbaarder worden ontwikkeld.
+          </p>
+          <div class="mt-10 grid gap-6 lg:grid-cols-2">
+            <div class="dark-panel rounded-3xl p-6">
+              <h3 class="text-base font-semibold text-white title-with-icon">
+                <i data-feather="x-square"></i>
+                Extreem negatieve ideeen (wat we moeten vermijden)
+              </h3>
+              <ul class="mt-3 list-disc space-y-2 pl-6 text-sm text-[#D4D4D4]">
+                <li>Geen aandacht voor duurzaamheid</li>
+                <li>Onnodig gebruik van AR/VR</li>
+                <li>Overmatig complexe user interface</li>
+                <li>Geen visuele hierarchie</li>
+                <li>Alles volledig publiek maken (privacyrisico)</li>
+                <li>Integratie van advertenties</li>
+                <li>Gevoeligheid voor hacks en datalekken</li>
+                <li>Uitsluiting van ouderen of digibeten</li>
+                <li>Gevoel van onveiligheid of criminaliteit</li>
+                <li>Onzichtbare of onopvallende aanwezigheid in de wijk</li>
               </ul>
-            </article>
+            </div>
+            <div class="dark-panel rounded-3xl p-6">
+              <h3 class="text-base font-semibold text-white title-with-icon">
+                <i data-feather="check-square"></i>
+                Belangrijke aandachtspunten (wat we moeten doen)
+              </h3>
+              <ul class="mt-3 list-disc space-y-2 pl-6 text-sm text-[#D4D4D4]">
+                <li>Duidelijke visuele hierarchie in de interface</li>
+                <li>Herkenbare en zichtbare aanwezigheid in de wijk</li>
+                <li>Rekening houden met privacywetgeving</li>
+                <li>Toegankelijkheid voor mensen met motorische beperkingen</li>
+                <li>Inzichtelijke en relevante wijkdata tonen</li>
+                <li>Transparantie verbeteren tussen gemeente en bewoners</li>
+              </ul>
+            </div>
+          </div>
+          <div class="reveal mt-8 rounded-3xl dark-panel p-6 opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#88D498]">Korte conclusie</p>
+            <p class="mt-3 text-sm text-[#D4D4D4]">
+              De negatieve brainstorm laat vooral zien dat het project moet focussen op gebruiksvriendelijkheid, inclusie, veiligheid en transparantie. Door de risicos te vermijden en de aandachtspunten te versterken, kan het prototype beter aansluiten op de behoeften van bewoners en de stad.
+            </p>
           </div>
         </div>
       </section>
 
       <section class="bg-white py-20" id="sprint">
         <div class="mx-auto w-full max-w-6xl px-6">
-          <div class="grid gap-8">
-            <article class="reveal rounded-2xl border border-slate-200 bg-white p-8 shadow-sm opacity-0 translate-y-3 transition-all duration-500 ease-out md:p-10">
-              <h2 class="text-2xl font-semibold tracking-tight text-ui-primary md:text-3xl">Sprintdoel en planning (Sprint 1)</h2>
-              <div class="mt-6 space-y-6 text-base leading-8 text-slate-700">
-                <div>
-                  <h3 class="text-lg font-semibold text-slate-900">Sprintdoel</h3>
-                  <p class="mt-2">Helder krijgen of de huidige situatie klopt en of de gemeente dit ook als probleem ziet. Indien er tijd is, een eerste concept prototype maken.</p>
-                </div>
-                <div>
-                  <h3 class="text-lg font-semibold text-slate-900">Planning</h3>
-                  <div class="mt-3 grid gap-3">
-                    <div class="rounded-lg border-l-4 border-ui-primary bg-slate-50 px-4 py-3">Opdrachtgever kiezen en het idee voorstellen aan de opdrachtgever</div>
-                    <div class="rounded-lg border-l-4 border-ui-primary bg-slate-50 px-4 py-3">Onderzoek doen naar de aannames uit de huidige situatie</div>
-                    <div class="rounded-lg border-l-4 border-ui-primary bg-slate-50 px-4 py-3">Onderzoek doen naar of de gewenste situatie juist is.</div>
-                    <div class="rounded-lg border-l-4 border-ui-primary bg-slate-50 px-4 py-3">Onderzoek doen naar de technieken die gebruikt kunnen worden.</div>
-                  </div>
-                </div>
+          <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#88D498]">Sprint 1</p>
+            <h2 class="mt-3 text-3xl font-extrabold text-[#262626] md:text-4xl">Sprintdoel & Planning</h2>
+          </div>
+          <div class="reveal mt-8 rounded-3xl soft-panel p-6 opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <h3 class="text-base font-semibold text-[#262626] title-with-icon">
+              <i data-feather="flag"></i>
+              Sprintdoel
+            </h3>
+            <p class="mt-2 text-sm text-[#262626]/70">
+              Helder krijgen of de huidige situatie klopt en of de gemeente dit ook als probleem ziet. Indien er tijd is, een eerste concept prototype maken.
+            </p>
+          </div>
+          <div class="mt-10 grid gap-8 lg:grid-cols-2">
+            <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+              <h3 class="text-base font-semibold text-[#262626] title-with-icon">
+                <i data-feather="list"></i>
+                Planning
+              </h3>
+              <ol class="mt-4 space-y-3 text-sm text-[#262626]">
+                <li class="pill rounded-2xl px-4 py-3">1 Opdrachtgever kiezen en het idee voorstellen aan de opdrachtgever</li>
+                <li class="pill rounded-2xl px-4 py-3">2 Onderzoek doen naar de aannames uit de huidige situatie</li>
+                <li class="pill rounded-2xl px-4 py-3">3 Onderzoek doen naar of de gewenste situatie juist is</li>
+                <li class="pill rounded-2xl px-4 py-3">4 Onderzoek doen naar de technieken die gebruikt kunnen worden</li>
+              </ol>
+            </div>
+            <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+              <h3 class="text-base font-semibold text-[#262626] title-with-icon">
+                <i data-feather="clipboard"></i>
+                Backlog (initieel)
+              </h3>
+              <div class="mt-4 space-y-3">
+                <div class="pill rounded-2xl px-4 py-3 text-sm text-[#262626]">Als gemeente wil ik dat er onderzoek gedaan wordt naar de zichtbaarheid van gemeente plannen op wijkniveau.</div>
+                <div class="pill rounded-2xl px-4 py-3 text-sm text-[#262626]">Als gemeente wil ik dat er onderzoek gedaan wordt over de behoefte van beschikbare informatie.</div>
+                <div class="pill rounded-2xl px-4 py-3 text-sm text-[#262626]">Als gemeente wil ik dat er een concept prototype gemaakt wordt om te testen of er behoefte is naar deze informatie.</div>
               </div>
-            </article>
-
-            <article class="reveal rounded-2xl border border-slate-200 bg-white p-8 shadow-sm opacity-0 translate-y-3 transition-all duration-500 ease-out md:p-10">
-              <h2 class="text-2xl font-semibold tracking-tight text-ui-primary md:text-3xl">Teamwaarden en samenwerking</h2>
-              <div class="mt-6 space-y-6 text-base leading-8 text-slate-700">
-                <div>
-                  <h3 class="text-lg font-semibold text-slate-900">Teamwaarden en -normen</h3>
-                  <ul class="mt-3 list-disc space-y-2 pl-6">
-                    <li>Doe normaal - dan doe je al gek genoeg.</li>
-                    <li>Doe een ander niet aan dat je jezelf niet aan doet.</li>
-                    <li>Wees aardig en respectvol.</li>
-                    <li>Als je niet aanwezig kan zijn, laat het op tijd weten.</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 class="text-lg font-semibold text-slate-900">Communicatie en samenwerking</h3>
-                  <ul class="mt-3 list-disc space-y-2 pl-6">
-                    <li>Communicatie via discord, whatsapp en teams.</li>
-                    <li>Hou mensen op de hoogte wat gedaan is.</li>
-                    <li>Transparante documentatie van keuzes en voortgang.</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 class="text-lg font-semibold text-slate-900">Relevante partners en experts</h3>
-                  <p class="mt-2">To be continued</p>
-                </div>
-                <div>
-                  <h3 class="text-lg font-semibold text-slate-900">Teamwaarden</h3>
-                  <ul class="mt-3 list-disc space-y-2 pl-6">
-                    <li>Eerlijkheid - We moeten transparant communiceren wat opgeslagen en verwerkt wordt.</li>
-                    <li>Nieuwsgierigheid - We moeten er voor zorgen dat de bewoners nieuwsgierig worden in wat er gebeurt in de omgeving.</li>
-                    <li>Creativiteit - Rotterdam is een stad van innovatie. Hierom moet er ruimte zijn voor vernieuwende oplossingen.</li>
-                    <li>Behulpzaamheid - We moeten er voor zorgen dat het systeem behulpzaam is voor de bewoners.</li>
-                    <li>Plezier - Het moet een leuke experience worden voor de bewoners.</li>
-                  </ul>
-                </div>
-              </div>
-            </article>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="bg-slate-50 py-20" id="fotos">
+      <section class="bg-white py-20" id="interview">
         <div class="mx-auto w-full max-w-6xl px-6">
-          <article class="reveal rounded-2xl border border-slate-200 bg-white p-8 shadow-sm opacity-0 translate-y-3 transition-all duration-500 ease-out md:p-10">
-            <div class="flex flex-wrap items-end justify-between gap-4">
-              <h2 class="text-2xl font-semibold tracking-tight text-ui-primary md:text-3xl">Het team</h2>
+          <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#88D498]">Interview doel</p>
+            <h2 class="mt-3 text-3xl font-extrabold text-[#262626] md:text-4xl">Inzicht uit bewoners</h2>
+          </div>
+          <div class="reveal mt-6 rounded-3xl card-outline p-6 opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <ul class="space-y-2 text-sm text-[#262626]/70">
+              <li>Inzicht krijgen in hoe bewoners momenteel informatie ontvangen over plannen en ontwikkelingen in hun wijk.</li>
+              <li>Begrijpen of bewoners zich betrokken voelen bij beslissingen van de Gemeente Rotterdam.</li>
+              <li>Achterhalen of bewoners behoefte hebben aan duidelijkere en zichtbare informatie in de openbare ruimte.</li>
+              <li>Inzicht krijgen in hoe bewoners feedback willen geven op ontwikkelingen in hun wijk.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-white py-20" id="huisstijl">
+        <div class="mx-auto w-full max-w-6xl px-6">
+          <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#88D498]">Huisstijl</p>
+            <h2 class="mt-3 text-3xl font-extrabold text-[#262626] md:text-4xl">Huisstijl en scherm (hardware)</h2>
+          </div>
+          <div class="reveal mt-6 rounded-3xl soft-panel p-8 text-center opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#0F5C45]">Plek voor hardware visual</p>
+            <p class="mt-2 text-sm text-[#262626]/70">Plaats hier een foto of mockup van het scherm in de openbare ruimte.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-dark py-20" id="team">
+        <div class="mx-auto w-full max-w-6xl px-6">
+          <div class="reveal opacity-0 translate-y-3 transition-all duration-500 ease-out">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[#88D498]">Het team</p>
+            <h2 class="mt-3 text-3xl font-extrabold text-white md:text-4xl">Teamwaarden & Samenwerking</h2>
+          </div>
+          <div class="mt-10 grid gap-6 lg:grid-cols-5">
+            <div class="dark-panel rounded-2xl p-4 text-center">
+              <p class="text-sm font-semibold text-white">Eerlijkheid</p>
+              <p class="mt-3 text-xs text-[#D4D4D4]">We moeten transparant communiceren wat opgeslagen en verwerkt wordt.</p>
             </div>
-
-            <div class="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-              <figure class="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm transition-transform duration-300 hover:-translate-y-1">
-                <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-1 text-center text-xs font-semibold uppercase tracking-wide text-slate-700">Romeo</div>
-                <img class="mt-3 h-72 w-full rounded-xl border border-slate-200 object-cover" src="images/romeo2.jpg" alt="Placeholder foto van teamlid 1" />
-              </figure>
-
-              <figure class="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm transition-transform duration-300 hover:-translate-y-1">
-                <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-1 text-center text-xs font-semibold uppercase tracking-wide text-slate-700">Olaf</div>
-                <img class="mt-3 h-72 w-full rounded-xl border border-slate-200 object-cover" src="images/olaf.png" alt="Placeholder foto van teamlid 2" />
-              </figure>
-
-              <figure class="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm transition-transform duration-300 hover:-translate-y-1">
-                <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-1 text-center text-xs font-semibold uppercase tracking-wide text-slate-700">Jake</div>
-                <img class="mt-3 h-72 w-full rounded-xl border border-slate-200 object-cover" src="images/jake5.png" alt="Placeholder foto van teamlid 3" />
-              </figure>
-
-              <figure class="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm transition-transform duration-300 hover:-translate-y-1">
-                <div class="rounded-lg border border-slate-200 bg-slate-50 px-3 py-1 text-center text-xs font-semibold uppercase tracking-wide text-slate-700">Salah</div>
-                <img class="mt-3 h-72 w-full rounded-xl border border-slate-200 object-cover" src="images/salah.jpg" alt="Placeholder foto van teamlid 4" />
-              </figure>
+            <div class="dark-panel rounded-2xl p-4 text-center">
+              <p class="text-sm font-semibold text-white">Nieuwsgierigheid</p>
+              <p class="mt-3 text-xs text-[#D4D4D4]">Bewoners nieuwsgierig maken naar wat er gebeurt in de omgeving.</p>
             </div>
-          </article>
+            <div class="dark-panel rounded-2xl p-4 text-center">
+              <p class="text-sm font-semibold text-white">Creativiteit</p>
+              <p class="mt-3 text-xs text-[#D4D4D4]">Rotterdam is een stad van innovatie. Ruimte voor vernieuwende oplossingen.</p>
+            </div>
+            <div class="dark-panel rounded-2xl p-4 text-center">
+              <p class="text-sm font-semibold text-white">Behulpzaamheid</p>
+              <p class="mt-3 text-xs text-[#D4D4D4]">Het systeem moet behulpzaam zijn voor bewoners.</p>
+            </div>
+            <div class="dark-panel rounded-2xl p-4 text-center">
+              <p class="text-sm font-semibold text-white">Plezier</p>
+              <p class="mt-3 text-xs text-[#D4D4D4]">Het moet een leuke experience worden voor bewoners.</p>
+            </div>
+          </div>
+          <div class="mt-10 grid gap-8 lg:grid-cols-3">
+            <div>
+              <h3 class="text-base font-semibold text-white title-with-icon">
+                <i data-feather="check"></i>
+                Team-normen
+              </h3>
+              <ul class="mt-4 space-y-3 text-sm text-[#D4D4D4]">
+                <li>- Doe normaal - dan doe je al gek genoeg.</li>
+                <li>- Doe een ander niet aan dat je jezelf niet aan doet.</li>
+                <li>- Wees aardig en respectvol.</li>
+                <li>- Als je niet aanwezig kan zijn, laat het op tijd weten.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold text-white title-with-icon">
+                <i data-feather="message-square"></i>
+                Communicatie
+              </h3>
+              <ul class="mt-4 space-y-3 text-sm text-[#D4D4D4]">
+                <li>- Communicatie via Discord, WhatsApp en Teams.</li>
+                <li>- Hou mensen op de hoogte wat gedaan is.</li>
+                <li>- Transparante documentatie van keuzes en voortgang.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-base font-semibold text-white title-with-icon">
+                <i data-feather="user"></i>
+                Teamleden
+              </h3>
+              <div class="mt-4 grid grid-cols-2 gap-4">
+                <div class="dark-panel rounded-2xl p-4 text-center">
+                  <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#0F5C45] text-white">R</div>
+                  <p class="mt-2 text-sm font-semibold text-white">Romeo</p>
+                </div>
+                <div class="dark-panel rounded-2xl p-4 text-center">
+                  <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#0F5C45] text-white">O</div>
+                  <p class="mt-2 text-sm font-semibold text-white">Olaf</p>
+                </div>
+                <div class="dark-panel rounded-2xl p-4 text-center">
+                  <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#0F5C45] text-white">J</div>
+                  <p class="mt-2 text-sm font-semibold text-white">Jake</p>
+                </div>
+                <div class="dark-panel rounded-2xl p-4 text-center">
+                  <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#0F5C45] text-white">S</div>
+                  <p class="mt-2 text-sm font-semibold text-white">Salah</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
