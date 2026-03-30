@@ -56,8 +56,8 @@ if (
       trigger.classList.toggle("border-ui-primary", isActive);
       trigger.classList.toggle("text-white", isActive);
       trigger.classList.toggle("bg-white", !isActive);
-      trigger.classList.toggle("border-slate-200", !isActive);
-      trigger.classList.toggle("text-slate-700", !isActive);
+      trigger.classList.toggle("border-ui-line", !isActive);
+      trigger.classList.toggle("text-ui-text", !isActive);
       trigger.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
   };
@@ -91,3 +91,7 @@ flipCards.forEach((card) => {
     card.setAttribute("aria-pressed", isFlipped ? "true" : "false");
   });
 });
+
+if (window.feather) {
+  window.feather.replace();
+}
