@@ -3,7 +3,7 @@
 ## Name
 Het format van de name op de server zijn als volgt:
 ```
-<bouwprojectnaam-<year>-<lang>
+<bouwprojectnaam-<year>-<lang>.json
 ```
 
 #### Talen

@@ -1,0 +1,37 @@
+{
+  "name": "De-Sax",
+  "begin-year": "2025",
+  "lang": "nl",
+  "description": "Over een aantal jaren zal De Sax de skyline van Rotterdam verrijken. Met zijn twee woontorens op de Kop van Zuid, die met elkaar verbonden worden door een “balk” met daarin ruime, zwevende appartementen, wordt De Sax een echte blikvanger. De initiatiefnemers zijn BPD | Bouwfonds Gebiedsontwikkeling én Synchroon. \nVan veraf is De Sax een statement; van dichtbij is de inrichting van het gebouw gefocust op de connectie tussen mensen. Dit vind je terug in de 912 koop- en (midden)huurappartementen, horeca en winkels op straatniveau én in de gemeenschappelijke daktuinen en woonkamers in het gebouw.",
+  "milestones": [
+    {
+      "title": "Palen geslagen",
+      "description": "De heipalen zijn geslagen"
+    },
+    {
+      "title": "Kraan geplaatst",
+      "description": "de hijskraan in ingespawned!"
+    }
+  ],
+  "completed-percentage": "10%",
+  "completed-text": "In aanbouw",
+  
+  "buy-house": 94,
+  "rent-houses": 822,
+  "hoog-segment-rent": 364,
+  "mid-segment-rent": 458,
+  "top-segment-buy": 94,
+  
+  "total": 916,
+  "appartement": 916,
+  "house": 0,
+  "height": 180,
+
+  "target-marked": [
+    "Alleen wonen",
+    "Kinderen uit huis, de stad weer in / 55 plus",
+    "Samen zonder kinderen",
+    "Starter op de woningmarkt"
+  ]
+  
+}
