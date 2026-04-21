@@ -1,10 +1,14 @@
 import bouwfondsLogo from './assets/bouwfonds logo.png'
 import desaxGebouw from './assets/desax_gebouw.png'
 import bouwfondsAchtergrond from './assets/bouwfondsAchtergrond.png'
+import gebouw1 from './assets/gebouw1.png'
+import gebouw2 from './assets/gebouw2.png'
+import gebouw3 from './assets/gebouw3.png'
 import gemeenteRotterdamLogo from './assets/gemeenterotterdamlogo.png'
 import dutchFlag from './assets/dutch_flag.png'
 import { developmentFund } from './data/developmentFund'
 import { languageOptions, quickLinks } from './data/navigation'
+import { projectInfo } from './data/projectInfo'
 import { milestones, timelineProgress } from './data/timeline'
 import './App.css'
 
@@ -115,7 +119,7 @@ function TimelinePage() {
                 <div className="milestone-card__content">
                   <h2>{milestone.title}</h2>
                   <p>{milestone.description}</p>
-                  <a className="milestone-card__action" href="/tijdlijn" aria-label={milestone.title}>
+                  <a className="milestone-card__action" href={`/tijdlijn/${milestone.slug}`} aria-label={milestone.title}>
                     <span>{milestone.actionLabel}</span>
                     <span className="milestone-card__action-arrow" aria-hidden="true" />
                   </a>
@@ -144,10 +148,89 @@ function TimelinePage() {
   )
 }
 
-function App() {
-  const isTimelinePage = window.location.pathname === '/tijdlijn'
+function InfoPage() {
+  return (
+    <main className="wireframe-shell">
+      <section className="info-screen">
+        <section className="info-gallery" aria-label="Projectbeelden">
+          <img className="info-gallery__image info-gallery__image--large" src={gebouw1} alt="De SAX gebouwdetail" />
+          <img className="info-gallery__image" src={gebouw2} alt="De SAX toren en bruggebouw" />
+          <img className="info-gallery__image" src={gebouw3} alt="De SAX vanuit de omgeving" />
+        </section>
 
-  return isTimelinePage ? <TimelinePage /> : <HomePage />
+        <section className="info-content" aria-labelledby="project-info-title">
+          <h1 id="project-info-title">{projectInfo.title}</h1>
+          <dl className="info-stats">
+            {projectInfo.stats.map((stat) => (
+              <div className="info-stat" key={stat.value}>
+                <dt>{stat.value}</dt>
+                <dd>
+                  <span className="info-stat__icon" aria-hidden="true">{stat.icon}</span>
+                  <span className="info-stat__label">
+                    {stat.labelLines.map((line) => (
+                      <span key={line}>{line}</span>
+                    ))}
+                  </span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      </section>
+    </main>
+  )
+}
+
+function MilestoneDetailPage({ milestone }) {
+  if (!milestone) {
+    return (
+      <main className="wireframe-shell">
+        <section className="milestone-detail-screen">
+          <a className="milestone-detail__back" href="/tijdlijn">Terug naar tijdlijn</a>
+          <h1>Mijlpaal niet gevonden</h1>
+          <p>Deze mijlpaal bestaat niet of is verplaatst.</p>
+        </section>
+      </main>
+    )
+  }
+
+  return (
+    <main className="wireframe-shell">
+      <article className="milestone-detail-screen">
+        <a className="milestone-detail__back" href="/tijdlijn">Terug naar tijdlijn</a>
+        <time className="milestone-detail__date" dateTime={milestone.dateTime}>
+          <span>{milestone.date.month}</span>
+          <strong>{milestone.date.day}</strong>
+          <span>{milestone.date.year}</span>
+        </time>
+        <p className="milestone-detail__eyebrow">Mijlpaal</p>
+        <h1>{milestone.detailTitle}</h1>
+        <p className="milestone-detail__summary">{milestone.description}</p>
+        <p className="milestone-detail__text">{milestone.detailText}</p>
+      </article>
+    </main>
+  )
+}
+
+function App() {
+  const { pathname } = window.location
+
+  if (pathname.startsWith('/tijdlijn/')) {
+    const slug = pathname.replace('/tijdlijn/', '')
+    const milestone = milestones.find((item) => item.slug === slug)
+
+    return <MilestoneDetailPage milestone={milestone} />
+  }
+
+  if (pathname === '/tijdlijn') {
+    return <TimelinePage />
+  }
+
+  if (pathname === '/info') {
+    return <InfoPage />
+  }
+
+  return <HomePage />
 }
 
 export default App
