@@ -1,17 +1,29 @@
 export const quickLinks = [
   {
-    title: 'TIJDLIJN BIJ BOUWPROJECT',
-    titleLines: ['TIJDLIJN BIJ', 'BOUWPROJECT'],
+    title: {
+      nl: 'TIJDLIJN BIJ BOUWPROJECT',
+      en: 'CONSTRUCTION PROJECT TIMELINE',
+    },
+    titleLines: {
+      nl: ['TIJDLIJN BIJ', 'BOUWPROJECT'],
+      en: ['PROJECT', 'TIMELINE'],
+    },
     href: '/tijdlijn',
   },
   {
-    title: 'INFORMATIE BOUWPROJECT',
-    titleLines: ['INFORMATIE', 'BOUWPROJECT'],
+    title: {
+      nl: 'INFORMATIE BOUWPROJECT',
+      en: 'CONSTRUCTION PROJECT INFORMATION',
+    },
+    titleLines: {
+      nl: ['INFORMATIE', 'BOUWPROJECT'],
+      en: ['PROJECT', 'INFORMATION'],
+    },
     href: '/info',
   },
 ]
 
 export const languageOptions = [
-  { label: 'NL', value: '/taal/nl' },
-  { label: 'EN', value: '/taal/en' },
+  { code: 'nl', label: 'Nederlands' },
+  { code: 'en', label: 'English' },
 ]
