@@ -151,8 +151,7 @@ export const projectInfo = {
           'Wil jij op de hoogte blijven? Schrijf je in voor onze nieuwsbrief, dan ben je altijd op de hoogte van de voortgang. Ook weet jij het dan als eerste wanneer je je kunt inschrijven voor een woning die past bij jou en jouw wensen. Op dit moment is inschrijven voor een woning nog niet mogelijk.',
         ],
         en: [
-          'The tone has been set: all required permits for the construction of De Sax have been granted. The first underground works will start at the end of 2025 and will take about a year. Once these works are completed, De Sax will also become visible above ground.',
-          'Do you want to stay informed? Subscribe to our newsletter and you will always be up to date on the progress. You will also be the first to know when you can register for a home that suits you and your wishes. Registration for a home is not yet possible at this time.',
+          'All required permits for the construction of De Sax have been granted. The first underground works will start at the end of 2025 and will take about a year. Once these works are completed, De Sax will also become visible above ground.'
         ],
       },
     },
