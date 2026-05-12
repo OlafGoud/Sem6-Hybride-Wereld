@@ -1,7 +1,7 @@
 export const developmentFund = {
   title: {
-    nl: 'Bouwfonds gebiedsontwikkeling',
-    en: 'Bouwfonds area development',
+    nl: 'Bouwfonds Ontwikkeling B.V.',
+    en: 'Bouwfonds Ontwikkeling B.V.',
   },
   description: {
     nl: 'Een gebiedsontwikkelaar die aantrekkelijke leefomgevingen realiseert in Nederland en Duitsland. Sinds onze oprichting ruim 75 jaar geleden in 1946',

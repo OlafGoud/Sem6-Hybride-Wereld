@@ -427,47 +427,7 @@ function InfoPage({ language, onLanguageChange, t }) {
             ))}
           </div>
 
-          <div className="project-story__cta">
-            <button className="project-story__button" type="button" onClick={() => setIsSignupOpen(true)}>
-              {t.stayUpdated}
-            </button>
-          </div>
         </section>
-
-        {isSignupOpen && (
-          <div className="signup-modal" role="dialog" aria-modal="true" aria-labelledby="signup-modal-title">
-            <div className="signup-modal__backdrop" onClick={closeSignupModal} />
-            <form className="signup-modal__panel" onSubmit={handleSignupSubmit}>
-              <button
-                className="signup-modal__close"
-                type="button"
-                aria-label={t.closeModal}
-                onClick={closeSignupModal}
-              >
-                ×
-              </button>
-              <h2 id="signup-modal-title">{t.stayUpdatedTitle}</h2>
-              <p>{isSubmitted ? t.signupSuccess : t.stayUpdatedText}</p>
-              {!isSubmitted && (
-                <>
-                  <label className="signup-modal__field">
-                    <span>{t.emailLabel}</span>
-                    <input
-                      type="email"
-                      value={email}
-                      placeholder={t.emailPlaceholder}
-                      required
-                      onChange={(event) => setEmail(event.target.value)}
-                    />
-                  </label>
-                  <button className="signup-modal__submit" type="submit">
-                    {t.submitEmail}
-                  </button>
-                </>
-              )}
-            </form>
-          </div>
-        )}
       </section>
     </main>
   )
