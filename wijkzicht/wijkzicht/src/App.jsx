@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { FaArrowLeft, FaHome } from 'react-icons/fa'
 import { LuBike, LuHouse, LuLeaf, LuShoppingBag } from 'react-icons/lu'
 import bouwfondsLogo from './assets/bouwfonds logo.png'
@@ -28,6 +28,7 @@ const homeSlides = [
 ]
 
 const homeSlideDuration = 5000
+const inactivityTimeout = 20000
 const languageFlags = {
   nl: dutchFlag,
   en: englishFlag,
@@ -545,18 +546,65 @@ function MilestoneDetailPage({ language, milestone, onLanguageChange, t }) {
 function App() {
   const { pathname } = window.location
   const [language, setLanguage] = useState(getInitialLanguage)
+  const [lastActivityAt, setLastActivityAt] = useState(() => Date.now())
+  const hasRedirectedRef = useRef(false)
   const t = uiText[language]
+
+  useEffect(() => {
+    const registerActivity = () => {
+      setLastActivityAt(Date.now())
+      hasRedirectedRef.current = false
+    }
+
+    const activityEvents = ['click', 'touchstart', 'pointerdown', 'keydown']
+
+    activityEvents.forEach((eventName) => {
+      document.addEventListener(eventName, registerActivity, { passive: true })
+    })
+
+    return () => {
+      activityEvents.forEach((eventName) => {
+        document.removeEventListener(eventName, registerActivity)
+      })
+    }
+  }, [])
+
+  useEffect(() => {
+    hasRedirectedRef.current = false
+    setLastActivityAt(Date.now())
+  }, [pathname])
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      const elapsed = Date.now() - lastActivityAt
+
+      if (
+        elapsed >= inactivityTimeout &&
+        window.location.pathname !== '/' &&
+        !hasRedirectedRef.current
+      ) {
+        hasRedirectedRef.current = true
+        window.location.assign('/')
+      }
+    }, 250)
+
+    return () => {
+      window.clearInterval(interval)
+    }
+  }, [lastActivityAt])
 
   const handleLanguageChange = (nextLanguage) => {
     setLanguage(nextLanguage)
     window.localStorage.setItem('wijkzicht-language', nextLanguage)
   }
 
+  let pageContent
+
   if (pathname.startsWith('/tijdlijn/')) {
     const slug = pathname.replace('/tijdlijn/', '')
     const milestone = milestones.find((item) => item.slug === slug && !item.locked)
 
-    return (
+    pageContent = (
       <MilestoneDetailPage
         language={language}
         milestone={milestone}
@@ -566,19 +614,23 @@ function App() {
     )
   }
 
-  if (pathname === '/tijdlijn') {
-    return <TimelinePage language={language} onLanguageChange={handleLanguageChange} t={t} />
+  if (!pageContent && pathname === '/tijdlijn') {
+    pageContent = <TimelinePage language={language} onLanguageChange={handleLanguageChange} t={t} />
   }
 
-  if (pathname === '/info') {
-    return <InfoPage language={language} onLanguageChange={handleLanguageChange} t={t} />
+  if (!pageContent && pathname === '/info') {
+    pageContent = <InfoPage language={language} onLanguageChange={handleLanguageChange} t={t} />
   }
 
-  if (pathname === '/omgeving') {
-    return <EnvironmentPage language={language} onLanguageChange={handleLanguageChange} t={t} />
+  if (!pageContent && pathname === '/omgeving') {
+    pageContent = <EnvironmentPage language={language} onLanguageChange={handleLanguageChange} t={t} />
   }
 
-  return <HomePage language={language} onLanguageChange={handleLanguageChange} t={t} />
+  if (!pageContent) {
+    pageContent = <HomePage language={language} onLanguageChange={handleLanguageChange} t={t} />
+  }
+
+  return pageContent
 }
 
 export default App
