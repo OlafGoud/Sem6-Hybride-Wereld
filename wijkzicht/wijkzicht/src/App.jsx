@@ -14,6 +14,7 @@ import foto4 from './assets/foto_4.jpg'
 import gemeenteRotterdamLogo from './assets/gemeenterotterdamlogo.png'
 import dutchFlag from './assets/dutch_flag.png'
 import englishFlag from './assets/english_flag.png'
+import { environmentImpact } from './data/environmentImpact'
 import { developmentFund } from './data/developmentFund'
 import { languageOptions, quickLinks } from './data/navigation'
 import { projectInfo } from './data/projectInfo'
@@ -239,7 +240,7 @@ function HomePage({ language, onLanguageChange, t }) {
 
           <nav className="feature-list" aria-label={t.mainNavigation}>
             {quickLinks.map((link) => (
-              <article className="feature-card" key={link.href}>
+              <a className="feature-card" href={link.href} key={link.href} aria-label={translate(link.title, language)}>
                 <div className="feature-card__image" aria-hidden="true" />
                 <div className="feature-card__body">
                   <h2>
@@ -247,11 +248,11 @@ function HomePage({ language, onLanguageChange, t }) {
                       <span key={line}>{line}</span>
                     ))}
                   </h2>
-                  <a className="feature-card__action" href={link.href} aria-label={translate(link.title, language)}>
+                  <span className="feature-card__action" aria-hidden="true">
                     <span className="feature-card__arrow" aria-hidden="true" />
-                  </a>
+                  </span>
                 </div>
-              </article>
+              </a>
             ))}
           </nav>
 
@@ -472,6 +473,53 @@ function InfoPage({ language, onLanguageChange, t }) {
   )
 }
 
+function EnvironmentPage({ language, onLanguageChange, t }) {
+  return (
+    <main className="wireframe-shell">
+      <section className="environment-screen">
+        <HomeButton t={t} />
+        <LanguageSwitcher
+          className="language-picker--floating"
+          language={language}
+          onLanguageChange={onLanguageChange}
+          t={t}
+        />
+
+        <header className="environment-hero" style={{ backgroundImage: `url(${gebouw3})` }}>
+          <div className="environment-hero__overlay" />
+          <div className="environment-hero__content">
+            <p className="environment-hero__eyebrow">De Sax</p>
+            <h1>{translate(environmentImpact.title, language)}</h1>
+            <p>{translate(environmentImpact.intro, language)}</p>
+          </div>
+        </header>
+
+        <div className="environment-sections">
+          {environmentImpact.sections.map((section) => (
+            <section
+              className={`environment-section environment-section--${section.tone}`}
+              key={translate(section.title, language)}
+            >
+              <div className="environment-section__header">
+                <p>{translate(section.subtitle, language)}</p>
+                <h2>{translate(section.title, language)}</h2>
+              </div>
+              <div className="environment-section__list">
+                {translate(section.items, language).map((item) => (
+                  <article className="environment-item" key={item.label}>
+                    <h3>{item.label}</h3>
+                    <p>{item.text}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      </section>
+    </main>
+  )
+}
+
 function MilestoneDetailPage({ language, milestone, onLanguageChange, t }) {
   if (!milestone) {
     return (
@@ -564,6 +612,10 @@ function App() {
 
   if (pathname === '/info') {
     return <InfoPage language={language} onLanguageChange={handleLanguageChange} t={t} />
+  }
+
+  if (pathname === '/omgeving') {
+    return <EnvironmentPage language={language} onLanguageChange={handleLanguageChange} t={t} />
   }
 
   return <HomePage language={language} onLanguageChange={handleLanguageChange} t={t} />

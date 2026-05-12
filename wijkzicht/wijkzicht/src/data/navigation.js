@@ -21,6 +21,17 @@ export const quickLinks = [
     },
     href: '/info',
   },
+  {
+    title: {
+      nl: 'EFFECT OP DE OMGEVING',
+      en: 'IMPACT ON THE SURROUNDINGS',
+    },
+    titleLines: {
+      nl: ['EFFECT OP DE', 'OMGEVING'],
+      en: ['IMPACT ON', 'SURROUNDINGS'],
+    },
+    href: '/omgeving',
+  },
 ]
 
 export const languageOptions = [
